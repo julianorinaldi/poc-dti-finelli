@@ -1,11 +1,11 @@
 using AutoMapper;
-using FinelliServiceCadastro.Model;
-using FinelliApplication.Persistence.Contexts;
-using FinelliApplication.Repositories;
-using FinelliApplication.Services;
+using FinelliApplicationVehicle.Persistence.Contexts;
+using FinelliApplicationVehicle.Repositories;
+using FinelliApplicationVehicle.Services;
 using FinelliDomain;
 using FinelliDomain.Repositories;
 using FinelliDomain.Services;
+using FinelliServiceCadastro.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -30,7 +30,7 @@ namespace FinelliServiceCadastro
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<MemoryDbContext>(options =>
+            services.AddDbContext<MemoryDbContextBase>(options =>
             {
                 options.UseInMemoryDatabase("Web-API-Memory");
             });

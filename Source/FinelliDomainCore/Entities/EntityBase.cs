@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.Json.Serialization;
 
-namespace FinelliDomain.Entities
+namespace FinelliDomainCore.Entities
 {
     public abstract class EntityBase
     {

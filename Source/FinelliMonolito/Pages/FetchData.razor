@@ -1,13 +1,13 @@
 ﻿@page "/fetchdata"
 
-@using FinelliMonolito.Data
-@inject WeatherForecastService ForecastService
+@using FinelliDomain.Services
+@using FinelliDomain
 
-<h1>Weather forecast</h1>
+@inject IVehicleService vehicleService
 
-<p>This component demonstrates fetching data from a service.</p>
+<h1>Veículos</h1>
 
-@if (forecasts == null)
+@if (vehicles == null)
 {
     <p><em>Loading...</em></p>
 }
@@ -16,20 +16,24 @@ else
     <table class="table">
         <thead>
             <tr>
-                <th>Date</th>
-                <th>Temp. (C)</th>
-                <th>Temp. (F)</th>
-                <th>Summary</th>
+                <th>Chassi</th>
+                <th>Nome</th>
+                <th>Marca</th>
+                <th>Cap. de pessoas</th>
+                <th>Ano</th>
+                <th>Cor</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var forecast in forecasts)
+            @foreach (var vehicle in vehicles)
             {
                 <tr>
-                    <td>@forecast.Date.ToShortDateString()</td>
-                    <td>@forecast.TemperatureC</td>
-                    <td>@forecast.TemperatureF</td>
-                    <td>@forecast.Summary</td>
+                    <td>@vehicle.Chassi</td>
+                    <td>@vehicle.VehicleName</td>
+                    <td>@vehicle.Brand</td>
+                    <td>@vehicle.Capacity</td>
+                    <td>@vehicle.Year</td>
+                    <td>@vehicle.Color</td>
                 </tr>
             }
         </tbody>
@@ -37,10 +41,11 @@ else
 }
 
 @code {
-    private WeatherForecast[] forecasts;
+    private Vehicle[] vehicles;
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+        var vehiclesAsync = await vehicleService.ListAsync();
+        vehicles = vehiclesAsync.ToArray();
     }
 }

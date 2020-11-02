@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using FinelliServiceCadastro.Model;
 using FinelliDomain;
 using FinelliDomain.Services;
+using FinelliServiceCadastro.Model;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

@@ -5,9 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FinelliApplication\FinelliApplication.csproj" />
-    <ProjectReference Include="..\FinelliDomain\FinelliDomain.csproj" />
-    <ProjectReference Include="..\FinelliServiceCadastro\FinelliServiceCadastro.csproj" />
+    <ProjectReference Include="..\FinelliApplicationMonolito\FinelliApplicationMonolito.csproj" />
+    <ProjectReference Include="..\FinelliApplication\FinelliDataCore.csproj" />
+    <ProjectReference Include="..\FinelliDomainMonolito\FinelliDomainMonolito.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.9" />
   </ItemGroup>
 
 </Project>

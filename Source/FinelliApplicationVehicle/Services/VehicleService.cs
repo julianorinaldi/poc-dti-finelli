@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace FinelliApplication.Services
+namespace FinelliApplicationVehicle.Services
 {
     public class VehicleService : IVehicleService
     {

@@ -1,14 +1,17 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using AutoMapper;
+using FinelliApplicationMonolito.Repositories;
+using FinelliApplicationMonolito.Services;
+using FinelliApplicationVehicle.Persistence.Contexts;
+using FinelliDomain;
+using FinelliDomain.Repositories;
+using FinelliDomain.Services;
+using FinelliMonolito.Data;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using FinelliMonolito.Data;
 
 namespace FinelliMonolito
 {
@@ -25,9 +28,25 @@ namespace FinelliMonolito
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IBrandRepository, BrandRepository>();
+            services.AddScoped<IBrandService, BrandService>();
+
+            services.AddDbContext<MemoryDbContextBase>(options =>
+            {
+                options.UseInMemoryDatabase("Web-API-Memory");
+            });
+
+            var config = new AutoMapper.MapperConfiguration(cfg =>
+            {
+                cfg.CreateMap<Brand, BrandModel>();
+                cfg.CreateMap<BrandModel, Brand>();
+            });
+
+            IMapper mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
+
             services.AddRazorPages();
             services.AddServerSideBlazor();
-            services.AddSingleton<WeatherForecastService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

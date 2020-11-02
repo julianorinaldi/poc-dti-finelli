@@ -1,4 +1,4 @@
-using FinelliApplication.Persistence.Contexts;
+using FinelliApplicationVehicle.Persistence.Contexts;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,7 +12,7 @@ namespace FinelliServiceCadastro
         {
             var host = BuildWebHost(args);
             using (var scope = host.Services.CreateScope())
-            using (var context = scope.ServiceProvider.GetService<MemoryDbContext>())
+            using (var context = scope.ServiceProvider.GetService<MemoryDbContextBase>())
             {
                 context.Database.EnsureCreated();
             }

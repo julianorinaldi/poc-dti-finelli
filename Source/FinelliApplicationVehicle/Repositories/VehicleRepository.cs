@@ -1,15 +1,15 @@
-﻿using FinelliApplication.Persistence.Contexts;
+﻿using FinelliApplicationVehicle.Persistence.Contexts;
 using FinelliDomain;
 using FinelliDomain.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace FinelliApplication.Repositories
+namespace FinelliApplicationVehicle.Repositories
 {
-    public class VehicleRepository : BaseRepository, IVehicleRepository
+    public class VehicleRepository : BaseRepository<MemoryDbContextCRUDVehicle>, IVehicleRepository
     {
-        public VehicleRepository(MemoryDbContext context) : base(context)
+        public VehicleRepository(MemoryDbContextCRUDVehicle context) : base(context)
         {
         }
 

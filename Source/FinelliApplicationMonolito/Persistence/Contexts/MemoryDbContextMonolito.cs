@@ -1,16 +1,16 @@
-﻿using FinelliApplication.Persistence.EntityConfigurations;
+﻿using FinelliApplicationVehicle.Persistence.EntityConfigurations;
 using FinelliDomain;
 using Microsoft.EntityFrameworkCore;
 
-namespace FinelliApplication.Persistence.Contexts
+namespace FinelliApplicationVehicle.Persistence.Contexts
 {
-    public class MemoryDbContext : DbContext
+    public class MemoryDbContextMonolito : MemoryDbContextBase
     {
-        public MemoryDbContext(DbContextOptions<MemoryDbContext> options) : base(options)
+        public MemoryDbContextMonolito(DbContextOptions<MemoryDbContextMonolito> options) : base(options)
         {
         }
 
-        public DbSet<Vehicle> Vehicles { get; set; }
+        public DbSet<Brand> Brands { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -21,7 +21,7 @@ namespace FinelliApplication.Persistence.Contexts
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new VehicleEntityTypeConfiguration());
+            modelBuilder.ApplyConfiguration(new BrandEntityTypeConfiguration());
         }
     }
 }

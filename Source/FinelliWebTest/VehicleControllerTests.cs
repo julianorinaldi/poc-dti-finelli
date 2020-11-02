@@ -1,10 +1,10 @@
 using AutoMapper;
-using FinelliServiceCadastro.Controllers;
-using FinelliServiceCadastro.Model;
-using FinelliApplication.Services;
+using FinelliApplicationVehicle.Services;
 using FinelliDomain;
 using FinelliDomain.Repositories;
 using FinelliDomain.Services;
+using FinelliServiceCadastro.Controllers;
+using FinelliServiceCadastro.Model;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using System.Collections.Generic;

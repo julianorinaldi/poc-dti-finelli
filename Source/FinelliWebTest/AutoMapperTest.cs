@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using FinelliServiceCadastro.Model;
 using FinelliDomain;
+using FinelliServiceCadastro.Model;
 
 namespace FinelliWebTest
 {

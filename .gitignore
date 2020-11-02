@@ -13,3 +13,12 @@
 /Source/FinelliServiceCadastro/obj
 /Source/FinelliWebTest/bin/Debug/netcoreapp3.1
 /Source/FinelliWebTest/obj
+/Source/.vs/FinelliSolution/config
+/Source/FinelliApplicationMonolito/bin/Debug/netcoreapp3.1
+/Source/FinelliApplicationMonolito/obj
+/Source/FinelliApplicationVehicle/bin/Debug/netcoreapp3.1
+/Source/FinelliApplicationVehicle/obj
+/Source/FinelliDomainCore/bin/Debug/netcoreapp3.1
+/Source/FinelliDomainCore/obj
+/Source/FinelliDomainMonolito/bin/Debug/netcoreapp3.1
+/Source/FinelliDomainMonolito/obj

@@ -1,4 +1,4 @@
-﻿using FinelliDomain.Entities;
+﻿using FinelliDomainCore.Entities;
 
 namespace FinelliDomain
 {

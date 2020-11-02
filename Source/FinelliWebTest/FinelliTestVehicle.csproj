@@ -16,8 +16,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FinelliApplication\FinelliApplication.csproj" />
-    <ProjectReference Include="..\FinelliDomain\FinelliDomain.csproj" />
-    <ProjectReference Include="..\FinelliServiceCadastro\FinelliServiceCadastro.csproj" />
+    <ProjectReference Include="..\FinelliApplicationVehicle\FinelliApplicationVehicle.csproj" />
+    <ProjectReference Include="..\FinelliApplication\FinelliDataCore.csproj" />
+    <ProjectReference Include="..\FinelliDomain\FinelliDomainVehicle.csproj" />
+    <ProjectReference Include="..\FinelliServiceCadastro\FinelliServiceCRUDVehicle.csproj" />
   </ItemGroup>
 </Project>
