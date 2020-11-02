@@ -13,13 +13,6 @@ namespace FinelliApplicationMonolito.Persistence.Contexts
 
         public DbSet<Brand> Brands { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.EnableSensitiveDataLogging();
-            optionsBuilder.UseLazyLoadingProxies();
-            base.OnConfiguring(optionsBuilder);
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new BrandEntityTypeConfiguration());

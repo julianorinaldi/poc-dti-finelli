@@ -1,7 +1,7 @@
 using AutoMapper;
+using FinelliApplicationVehicle.Persistence.Contexts;
 using FinelliApplicationVehicle.Repositories;
 using FinelliApplicationVehicle.Services;
-using FinelliDataCore.Persistence.Contexts;
 using FinelliDomainVehicle;
 using FinelliDomainVehicle.Repositories;
 using FinelliDomainVehicle.Services;
@@ -30,7 +30,7 @@ namespace FinelliServiceCRUDVehicle
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<MemoryDbContextBase>(options =>
+            services.AddDbContext<MemoryDbContextCRUDVehicle>(options =>
             {
                 options.UseInMemoryDatabase("Web-API-Memory");
             });

@@ -13,13 +13,6 @@ namespace FinelliApplicationVehicle.Persistence.Contexts
 
         public DbSet<Vehicle> Vehicles { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.EnableSensitiveDataLogging();
-            optionsBuilder.UseLazyLoadingProxies();
-            base.OnConfiguring(optionsBuilder);
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new VehicleEntityTypeConfiguration());

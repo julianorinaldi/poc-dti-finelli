@@ -8,18 +8,11 @@ namespace FinelliDataCore.Persistence.Contexts
         {
         }
 
-        // Implementar na herança
-
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.EnableSensitiveDataLogging();
             optionsBuilder.UseLazyLoadingProxies();
             base.OnConfiguring(optionsBuilder);
-        }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            // Implementar na herança
         }
     }
 }

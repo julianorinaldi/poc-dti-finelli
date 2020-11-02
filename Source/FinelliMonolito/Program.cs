@@ -1,4 +1,4 @@
-using FinelliDataCore.Persistence.Contexts;
+using FinelliApplicationMonolito.Persistence.Contexts;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,7 +12,7 @@ namespace FinelliMonolito
         {
             var host = BuildWebHost(args);
             using (var scope = host.Services.CreateScope())
-            using (var context = scope.ServiceProvider.GetService<MemoryDbContextBase>())
+            using (var context = scope.ServiceProvider.GetService<MemoryDbContextMonolito>())
             {
                 context.Database.EnsureCreated();
             }

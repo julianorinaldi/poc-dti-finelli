@@ -1,55 +1,172 @@
 ﻿@page "/microservicevehicle"
 
-    @using FinelliDomainVehicle
+@using FinelliDomainVehicle
+@inject HttpClient Http
 
-    @*@using FinelliApplicationVehicle.Services
+<h1>Veículos</h1>
 
-        @inject IVehicleService vehicleService*@
-
-    <h1>Veículos</h1>
-
-    @if (vehicles == null)
-    {
-        <p><em>Loading...</em></p>
-    }
-    else
-    {
-        <table class="table">
-            <thead>
+<table width="100%" style="background:#05163D;color:honeydew">
+    <tr>
+        <td width="20">&nbsp;</td>
+        <td>
+            <h2>Cadastro de Veículos</h2>
+        </td>
+        <td>&nbsp;</td>
+        <td align="right">
+            <button class="btn btn-info" onclick="@AddVehicle">Incluir Novo Veículo</button>
+        </td>
+        <td width="10">&nbsp;</td>
+    </tr>
+    <tr>
+        <td colspan="2"></td>
+    </tr>
+</table>
+<hr />
+<form>
+    <table class="form-group">
+        <tr>
+            <td>
+                <label for="Id" class="control-label">Id</label>
+            </td>
+            <td>
+                <input type="text" class="form-control" bind="@vehicle.Id" readonly />
+            </td>
+            <td width="20">&nbsp;</td>
+            <td>
+                <label for="Chassi" class="control-label">Chassi</label>
+            </td>
+            <td>
+                <input type="text" class="form-control" bind="@vehicle.Chassi" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="Capacity" class="control-label">Capacidade</label>
+            </td>
+            <td>
+                <input type="text" class="form-control" bind="@vehicle.Capacity" />
+            </td>
+            <td width="20">&nbsp;</td>
+            <td>
+                <label for="Brand" class="control-label">Marca</label>
+            </td>
+            <td>
+                <input type="text" class="form-control" bind="@vehicle.Brand" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="Color" class="control-label">Cor</label>
+            </td>
+            <td>
+                <input type="text" class="form-control" bind="@vehicle.Color" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit" class="btn btn-success" onclick="@(async () => await AddCliente())"
+                        style="width:220px;">
+                    Salvar
+                </button>
+            </td>
+        </tr>
+    </table>
+</form>
+<table width="100%" style="background:#0A2464;color:honeydew">
+    <tr>
+        <td width="20">&nbsp;</td>
+        <td>
+            <h2>Detalhes dos Veículos</h2>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"></td>
+    </tr>
+</table>
+@if (_vehicles == null)
+{
+    <p><em>Carregando...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Chassi</th>
+                <th>Capacidade</th>
+                <th>Marca</th>
+                <th>Cor</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in _vehicles)
+            {
                 <tr>
-                    <th>Chassi</th>
-                    <th>Nome</th>
-                    <th>Marca</th>
-                    <th>Cap. de pessoas</th>
-                    <th>Ano</th>
-                    <th>Cor</th>
+                    <td>@item.Id</td>
+                    <td>@item.Chassi</td>
+                    <td>@item.Capacity</td>
+                    <td>@item.Brand</td>
+                    <td>@item.Color</td>
+                    <td>
+                        <button class="btn btn-primary" onclick="@(async () => await EditCliente(item.ClienteId))"
+                                style="width:110px;">
+                            Editar
+                        </button>
+                    </td>
+                    <td>
+                        <button class="btn btn-danger" onclick="@(async () => await DeleteCliente(item.Id))">
+                            Deletar
+                        </button>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach (var vehicle in vehicles)
-                {
-                    <tr>
-                        <td>@vehicle.Chassi</td>
-                        <td>@vehicle.VehicleName</td>
-                        <td>@vehicle.Brand</td>
-                        <td>@vehicle.Capacity</td>
-                        <td>@vehicle.Year</td>
-                        <td>@vehicle.Color</td>
-                    </tr>
-                }
-            </tbody>
-        </table>
+            }
+        </tbody>
+    </table>
+}
+@functions {
+    Vehicle[] _vehicles;
+
+    Vehicle vehicle = new Vehicle();
+    string ids = "0";
+    bool exibeLinhaIncluida = false;
+
+    protected override async Task OnInitAsync()
+    {
+        _vehicles = await Http.GetJsonAsync<Vehicle[]>("/api/Clientes/");
     }
-
-    @code {
-
-        private Vehicle[] vehicles;
-
-        /*
-        protected override async Task OnInitializedAsync()
+    //adicionar novo cliene
+    void AddVehicle()
+    {
+        vehicle = new Vehicle();
+    }
+    /*
+    // Adicionar detalhes
+    protected async Task AddVehicle()
+    {
+        if (cliente.ClienteId == 0)
         {
-            var vehiclesAsync = await vehicleService.ListAsync();
-            vehicles = vehiclesAsync.ToArray();
+            await Http.SendJsonAsync(HttpMethod.Post, "/api/Clientes/", cliente);
         }
-        */
+        else
+        {
+            await Http.SendJsonAsync(HttpMethod.Put, "/api/Clientes/" + cliente.ClienteId, cliente);
+        }
+        cliente = new Cliente();
+        _clientes = await Http.GetJsonAsync<Cliente[]>("/api/Clientes/");
     }
+    // Editar
+    protected async Task EditCliente(int clienteID)
+    {
+        ids = clienteID.ToString();
+        cliente = await Http.GetJsonAsync<Cliente>("/api/Clientes/" + Convert.ToInt32(clienteID));
+    }
+    // deletar
+    protected async Task DeleteCliente(int clienteID)
+    {
+        ids = clienteID.ToString();
+        await Http.DeleteAsync("/api/Clientes/" + Convert.ToInt32(clienteID));
+        _clientes = await Http.GetJsonAsync<Cliente[]>("/api/Clientes/");
+    }
+    */
+}

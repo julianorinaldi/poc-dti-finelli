@@ -1,7 +1,7 @@
 using AutoMapper;
+using FinelliApplicationMonolito.Persistence.Contexts;
 using FinelliApplicationMonolito.Repositories;
 using FinelliApplicationMonolito.Services;
-using FinelliDataCore.Persistence.Contexts;
 using FinelliDomainMonolito;
 using FinelliMonolito.Data;
 using Microsoft.AspNetCore.Builder;
@@ -29,7 +29,7 @@ namespace FinelliMonolito
             services.AddScoped<IBrandRepository, BrandRepository>();
             services.AddScoped<IBrandService, BrandService>();
 
-            services.AddDbContext<MemoryDbContextBase>(options =>
+            services.AddDbContext<MemoryDbContextMonolito>(options =>
             {
                 options.UseInMemoryDatabase("Web-API-Memory");
             });
