@@ -1,8 +1,9 @@
-﻿using FinelliApplicationVehicle.Persistence.EntityConfigurations;
-using FinelliDomain;
+﻿using FinelliApplicationMonolito.Persistence.EntityConfigurations;
+using FinelliDataCore.Persistence.Contexts;
+using FinelliDomainMonolito;
 using Microsoft.EntityFrameworkCore;
 
-namespace FinelliApplicationVehicle.Persistence.Contexts
+namespace FinelliApplicationMonolito.Persistence.Contexts
 {
     public class MemoryDbContextMonolito : MemoryDbContextBase
     {

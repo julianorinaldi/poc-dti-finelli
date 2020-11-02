@@ -1,7 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using FinelliDomainMonolito;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace FinelliDomain.Services
+namespace FinelliApplicationMonolito.Services
 {
     public interface IBrandService
     {

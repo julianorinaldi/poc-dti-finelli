@@ -1,11 +1,11 @@
 using AutoMapper;
-using FinelliApplicationVehicle.Persistence.Contexts;
 using FinelliApplicationVehicle.Repositories;
 using FinelliApplicationVehicle.Services;
-using FinelliDomain;
-using FinelliDomain.Repositories;
-using FinelliDomain.Services;
-using FinelliServiceCadastro.Model;
+using FinelliDataCore.Persistence.Contexts;
+using FinelliDomainVehicle;
+using FinelliDomainVehicle.Repositories;
+using FinelliDomainVehicle.Services;
+using FinelliServiceCRUDVehicle.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -16,7 +16,7 @@ using Microsoft.Extensions.PlatformAbstractions;
 using Microsoft.OpenApi.Models;
 using System.IO;
 
-namespace FinelliServiceCadastro
+namespace FinelliServiceCRUDVehicle
 {
     public class Startup
     {

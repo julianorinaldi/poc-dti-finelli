@@ -1,4 +1,4 @@
-﻿using FinelliDomain;
+﻿using FinelliDomainVehicle;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;

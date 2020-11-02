@@ -1,6 +1,7 @@
 ﻿using FinelliApplicationVehicle.Persistence.Contexts;
-using FinelliDomain;
-using FinelliDomain.Repositories;
+using FinelliDataCore.Repositories;
+using FinelliDomainVehicle;
+using FinelliDomainVehicle.Repositories;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;

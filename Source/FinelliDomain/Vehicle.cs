@@ -1,6 +1,6 @@
 ﻿using FinelliDomainCore.Entities;
 
-namespace FinelliDomain
+namespace FinelliDomainVehicle
 {
     public class Vehicle : EntityBase
     {

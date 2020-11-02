@@ -1,10 +1,8 @@
 using AutoMapper;
 using FinelliApplicationMonolito.Repositories;
 using FinelliApplicationMonolito.Services;
-using FinelliApplicationVehicle.Persistence.Contexts;
-using FinelliDomain;
-using FinelliDomain.Repositories;
-using FinelliDomain.Services;
+using FinelliDataCore.Persistence.Contexts;
+using FinelliDomainMonolito;
 using FinelliMonolito.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

@@ -1,4 +1,4 @@
-﻿namespace FinelliServiceCadastro.Model
+﻿namespace FinelliServiceCRUDVehicle.Model
 {
     public class VehicleModel
     {

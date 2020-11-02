@@ -1,5 +1,6 @@
 ﻿using FinelliApplicationVehicle.Persistence.EntityConfigurations;
-using FinelliDomain;
+using FinelliDataCore.Persistence.Contexts;
+using FinelliDomainVehicle;
 using Microsoft.EntityFrameworkCore;
 
 namespace FinelliApplicationVehicle.Persistence.Contexts

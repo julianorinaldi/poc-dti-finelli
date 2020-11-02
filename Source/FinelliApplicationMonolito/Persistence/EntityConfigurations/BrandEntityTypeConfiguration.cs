@@ -1,9 +1,9 @@
-﻿using FinelliDomain;
+﻿using FinelliDomainMonolito;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
 
-namespace FinelliApplicationVehicle.Persistence.EntityConfigurations
+namespace FinelliApplicationMonolito.Persistence.EntityConfigurations
 {
     internal class BrandEntityTypeConfiguration : IEntityTypeConfiguration<Brand>
     {

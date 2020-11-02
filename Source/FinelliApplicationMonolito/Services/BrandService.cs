@@ -1,6 +1,5 @@
 ﻿using FinelliApplicationMonolito.Repositories;
-using FinelliDomain;
-using FinelliDomain.Services;
+using FinelliDomainMonolito;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;

@@ -1,0 +1,55 @@
+﻿@page "/microservicevehicle"
+
+    @using FinelliDomainVehicle
+
+    @*@using FinelliApplicationVehicle.Services
+
+        @inject IVehicleService vehicleService*@
+
+    <h1>Veículos</h1>
+
+    @if (vehicles == null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Chassi</th>
+                    <th>Nome</th>
+                    <th>Marca</th>
+                    <th>Cap. de pessoas</th>
+                    <th>Ano</th>
+                    <th>Cor</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var vehicle in vehicles)
+                {
+                    <tr>
+                        <td>@vehicle.Chassi</td>
+                        <td>@vehicle.VehicleName</td>
+                        <td>@vehicle.Brand</td>
+                        <td>@vehicle.Capacity</td>
+                        <td>@vehicle.Year</td>
+                        <td>@vehicle.Color</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+
+    @code {
+
+        private Vehicle[] vehicles;
+
+        /*
+        protected override async Task OnInitializedAsync()
+        {
+            var vehiclesAsync = await vehicleService.ListAsync();
+            vehicles = vehiclesAsync.ToArray();
+        }
+        */
+    }

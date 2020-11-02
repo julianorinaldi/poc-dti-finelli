@@ -1,10 +1,10 @@
 using AutoMapper;
 using FinelliApplicationVehicle.Services;
-using FinelliDomain;
-using FinelliDomain.Repositories;
-using FinelliDomain.Services;
-using FinelliServiceCadastro.Controllers;
-using FinelliServiceCadastro.Model;
+using FinelliDomainVehicle;
+using FinelliDomainVehicle.Repositories;
+using FinelliDomainVehicle.Services;
+using FinelliServiceCRUDVehicle.Controllers;
+using FinelliServiceCRUDVehicle.Model;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using System.Collections.Generic;
@@ -12,7 +12,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace FinelliWebTest
+namespace FinelliTestVehicle
 {
     public class VehicleControllerTests
     {

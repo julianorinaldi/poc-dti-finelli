@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace FinelliMonolito.Data
+﻿namespace FinelliMonolito.Data
 {
     public class BrandModel
     {

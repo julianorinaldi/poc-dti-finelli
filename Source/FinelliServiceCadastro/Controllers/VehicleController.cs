@@ -1,13 +1,13 @@
 ﻿using AutoMapper;
-using FinelliDomain;
-using FinelliDomain.Services;
-using FinelliServiceCadastro.Model;
+using FinelliDomainVehicle;
+using FinelliDomainVehicle.Services;
+using FinelliServiceCRUDVehicle.Model;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace FinelliServiceCadastro.Controllers
+namespace FinelliServiceCRUDVehicle.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

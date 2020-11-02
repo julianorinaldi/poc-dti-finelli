@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using FinelliDomain;
-using FinelliServiceCadastro.Model;
+using FinelliDomainVehicle;
+using FinelliServiceCRUDVehicle.Model;
 
-namespace FinelliWebTest
+namespace FinelliTestVehicle
 {
     public static class AutoMapperTest
     {

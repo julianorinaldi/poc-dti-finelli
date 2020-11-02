@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace FinelliDomain.Services
+namespace FinelliDomainVehicle.Services
 {
     public interface IVehicleService
     {

@@ -1,0 +1,43 @@
+﻿@page "/monolitobrand"
+
+@using FinelliApplicationMonolito.Services
+@using FinelliDomainMonolito
+
+@inject IBrandService service
+
+<h1>Marcas</h1>
+
+@if (brands == null)
+{
+    <p><em>Carregando...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var brand in brands)
+            {
+                <tr>
+                    <td>@brand.Name</td>
+                    <td>@brand.Decription</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Brand[] brands;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var vehiclesAsync = await service.ListAsync();
+        brands = vehiclesAsync.ToArray();
+    }
+}

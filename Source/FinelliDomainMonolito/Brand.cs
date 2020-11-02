@@ -1,6 +1,6 @@
 ﻿using FinelliDomainCore.Entities;
 
-namespace FinelliDomain
+namespace FinelliDomainMonolito
 {
     public class Brand : EntityBase
     {

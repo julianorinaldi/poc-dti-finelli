@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace FinelliApplicationVehicle.Persistence.Contexts
+namespace FinelliDataCore.Persistence.Contexts
 {
     public abstract class MemoryDbContextBase : DbContext
     {

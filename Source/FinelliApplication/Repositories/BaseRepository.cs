@@ -1,6 +1,4 @@
-﻿using FinelliApplicationVehicle.Persistence.Contexts;
-
-namespace FinelliApplicationVehicle.Repositories
+﻿namespace FinelliDataCore.Repositories
 {
     public abstract class BaseRepository<T>
     {

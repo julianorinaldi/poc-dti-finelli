@@ -1,6 +1,6 @@
-﻿using FinelliApplicationVehicle.Persistence.Contexts;
-using FinelliApplicationVehicle.Repositories;
-using FinelliDomain;
+﻿using FinelliApplicationMonolito.Persistence.Contexts;
+using FinelliDataCore.Repositories;
+using FinelliDomainMonolito;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;

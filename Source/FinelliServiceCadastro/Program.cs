@@ -1,10 +1,10 @@
-using FinelliApplicationVehicle.Persistence.Contexts;
+using FinelliDataCore.Persistence.Contexts;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace FinelliServiceCadastro
+namespace FinelliServiceCRUDVehicle
 {
     public class Program
     {
