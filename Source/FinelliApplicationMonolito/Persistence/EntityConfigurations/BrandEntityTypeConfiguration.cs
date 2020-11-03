@@ -11,9 +11,7 @@ namespace FinelliApplicationMonolito.Persistence.EntityConfigurations
         {
             builder.ToTable(nameof(Brand));
 
-            builder.HasKey(o => o.Name);
-
-            builder.HasAlternateKey(o => o.Name);
+            builder.HasKey(o => o.Id);
 
             builder
                 .Property<String>(nameof(Brand.Name))

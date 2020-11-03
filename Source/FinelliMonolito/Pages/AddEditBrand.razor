@@ -1,0 +1,29 @@
+﻿@page "/brand/add"
+@page "/brand/edit/{Id}"
+
+@inherits AddEditBrandModel
+
+<h1>@Title Brand</h1>
+<hr />
+
+<EditForm Model="@brand" OnValidSubmit="Save">
+    <DataAnnotationsValidator />
+    <div class="form-group row">
+        <label class="control-label col-md-12">Nome</label>
+        <div class="col-md-4">
+            <InputText class="form-control" @bind-Value="brand.Name" />
+        </div>
+        <ValidationMessage For="@(() => brand.Name)" />
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-md-12">Descrição</label>
+        <div class="col-md-4">
+            <InputText class="form-control" @bind-Value="brand.Decription" />
+        </div>
+        <ValidationMessage For="@(() => brand.Decription)" />
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Save</button>
+        <button class="btn btn-light" @onclick="Refresh">Cancelar</button>
+    </div>
+</EditForm>

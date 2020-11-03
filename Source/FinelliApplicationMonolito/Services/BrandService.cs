@@ -49,18 +49,19 @@ namespace FinelliApplicationMonolito.Services
 
         public void UpdateItem(Brand brand)
         {
-            if (String.IsNullOrWhiteSpace(brand?.Name))
+            if (String.IsNullOrWhiteSpace(brand?.Id))
                 throw new Exception("Marca incompleto!");
 
-            var get = _repository.FindByIdAsync(brand.Name);
-            if (!String.IsNullOrWhiteSpace(get.Result?.Name))
+            var get = _repository.FindByIdAsync(brand.Id);
+            if (!String.IsNullOrWhiteSpace(get.Result?.Id))
             {
                 var existsItem = get.Result;
                 existsItem.Decription = brand.Decription;
+                existsItem.Name = brand.Name;
                 _repository.Update(existsItem);
             }
             else
-                throw new Exception($"Marca não encontrado com {brand?.Name}!");
+                throw new Exception($"Marca não encontrado com {brand?.Id}!");
         }
     }
 }

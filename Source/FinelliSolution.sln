@@ -19,15 +19,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservices", "Microservi
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CRUDVehicle", "CRUDVehicle", "{8A52F779-BB1E-4D06-B10A-79727FD50546}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinelliApplicationVehicle", "FinelliApplicationVehicle\FinelliApplicationVehicle.csproj", "{DF12E90B-547F-4C95-9F3B-3B513E3947ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinelliApplicationVehicle", "FinelliApplicationVehicle\FinelliApplicationVehicle.csproj", "{DF12E90B-547F-4C95-9F3B-3B513E3947ED}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{D576F51B-326D-4AAF-9F34-3C623235A81D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinelliApplicationMonolito", "FinelliApplicationMonolito\FinelliApplicationMonolito.csproj", "{257D75A8-66A9-41FB-831A-762CB36522FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinelliApplicationMonolito", "FinelliApplicationMonolito\FinelliApplicationMonolito.csproj", "{257D75A8-66A9-41FB-831A-762CB36522FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinelliDomainMonolito", "FinelliDomainMonolito\FinelliDomainMonolito.csproj", "{3BF9483A-C9B4-4A04-A794-E381C37A8D30}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinelliDomainMonolito", "FinelliDomainMonolito\FinelliDomainMonolito.csproj", "{3BF9483A-C9B4-4A04-A794-E381C37A8D30}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinelliDomainCore", "FinelliDomainCore\FinelliDomainCore.csproj", "{2F7434A9-9C18-4401-B392-2E5F0568A973}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinelliDomainCore", "FinelliDomainCore\FinelliDomainCore.csproj", "{2F7434A9-9C18-4401-B392-2E5F0568A973}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
