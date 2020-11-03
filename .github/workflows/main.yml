@@ -26,7 +26,7 @@ jobs:
       - 
         name: Build the Docker image
         run: |
-         docker build . --file Dockerfile --tag julianorinaldi/dti-finelli-vehicle-service:latest
+         docker build . --file /Source/Dockerfile --tag julianorinaldi/dti-finelli-vehicle-service:latest
 
       - 
         name: Docker Push
