@@ -21,7 +21,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build the Docker image
-        run: docker build . --file /Source/Dockerfile --tag julianorinaldi/dti-finelli-vehicle-service:latest
+        run: docker build . --file Dockerfile --tag julianorinaldi/dti-finelli-vehicle-service:latest
 
       - name: Docker Push
         run: docker push julianorinaldi/dti-finelli-vehicle-service:latest
