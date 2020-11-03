@@ -32,7 +32,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0-DEVOPS", "0-DEVOPS", "{23D8C40B-F4D3-46DC-A457-B9001A0140F3}"
 	ProjectSection(SolutionItems) = preProject
 		..\.gitignore = ..\.gitignore
-		Dockerfile = Dockerfile
+		..\Dockerfile = ..\Dockerfile
 		..\.github\workflows\main.yml = ..\.github\workflows\main.yml
 	EndProjectSection
 EndProject
