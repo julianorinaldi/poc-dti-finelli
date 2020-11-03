@@ -10,7 +10,9 @@ namespace FinelliApplicationMonolito.Repositories
 
         Task AddAync(Brand brand);
 
-        Task<Brand> FindByIdAsync(string name);
+        Task<Brand> FindByIdAsync(string id);
+
+        Task<Brand> FindByNameAsync(string name);
 
         void Update(Brand brand);
 

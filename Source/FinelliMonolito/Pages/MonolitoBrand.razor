@@ -7,6 +7,71 @@
 
 <h1>Marcas</h1>
 
+<table class="tableCad">
+    <tr>
+        <td width="20">&nbsp;</td>
+        <td>
+            <h2>Cadastro de Marcas</h2>
+        </td>
+        <td>&nbsp;</td>
+        <td align="right">
+            <button class="btn btn-info" @onclick="New">Incluir</button>
+        </td>
+        <td width="10">&nbsp;</td>
+    </tr>
+    <tr>
+        <td colspan="2"></td>
+    </tr>
+</table>
+<hr />
+<form>
+    <table class="form-group">
+        <tr>
+            <td>
+                <label for="Id" class="control-label">Id</label>
+            </td>
+            <td>
+                <input type="text" class="form-control" @bind="brand.Id" readonly />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="Name" class="control-label">Nome</label>
+            </td>
+            <td>
+                <input type="text" class="form-control" @bind="brand.Name" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="Decription" class="control-label">Descrição</label>
+            </td>
+            <td>
+                <input type="text" class="form-control" @bind="brand.Decription" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button type="submit" class="btn btn-success" @onclick="Save"
+                        style="width:220px;">
+                    Salvar
+                </button>
+            </td>
+        </tr>
+    </table>
+</form>
+<table class="tableGrid">
+    <tr>
+        <td width="20">&nbsp;</td>
+        <td>
+            <h2>Detalhes dos Veículos</h2>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2"></td>
+    </tr>
+</table>
+
 @if (brands == null)
 {
     <p><em>Carregando...</em></p>
@@ -16,6 +81,7 @@ else
     <table class="table">
         <thead>
             <tr>
+                <th>Id</th>
                 <th>Nome</th>
                 <th>Descrição</th>
             </tr>
@@ -24,6 +90,7 @@ else
             @foreach (var brand in brands)
             {
                 <tr>
+                    <td>@brand.Id</td>
                     <td>@brand.Name</td>
                     <td>@brand.Decription</td>
                 </tr>
@@ -33,11 +100,48 @@ else
 }
 
 @code {
-    private Brand[] brands;
+    Brand[] brands;
+
+    Brand brand = new Brand();
 
     protected override async Task OnInitializedAsync()
     {
-        var vehiclesAsync = await service.ListAsync();
-        brands = vehiclesAsync.ToArray();
+        var itemAsync = await service.ListAsync();
+        brands = itemAsync.ToArray();
+    }
+
+    void New()
+    {
+        brand = new Brand();
+    }
+
+    void Save()
+    {
+        if (brand != null && !String.IsNullOrEmpty(brand.Name))
+        {
+            var brandExist = service.GetByNameAsync(brand.Name);
+            if (brandExist.Result != null)
+            {
+                brandExist.Result.Decription = brand.Decription;
+                service.UpdateItem(brandExist.Result);
+            }
+            else
+                service.AddItem(brand);
+
+        }
     }
 }
+
+<style>
+    .tableCad {
+        width: 100%;
+        background: #05163D;
+        color: honeydew
+    }
+
+    .tableGrid {
+        width: 100%;
+        background: #0A2464;
+        color: honeydew
+    }
+</style>

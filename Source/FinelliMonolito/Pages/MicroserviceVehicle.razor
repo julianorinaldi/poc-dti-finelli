@@ -1,11 +1,14 @@
 ﻿@page "/microservicevehicle"
 
+@using System.Net.Http
+@using System.Net.Http.Json
 @using FinelliDomainVehicle
+
 @inject HttpClient Http
 
 <h1>Veículos</h1>
 
-<table width="100%" style="background:#05163D;color:honeydew">
+<table class="tableCad">
     <tr>
         <td width="20">&nbsp;</td>
         <td>
@@ -13,7 +16,7 @@
         </td>
         <td>&nbsp;</td>
         <td align="right">
-            <button class="btn btn-info" onclick="@AddVehicle">Incluir Novo Veículo</button>
+            <button class="btn btn-info" @onclick="New">Incluir</button>
         </td>
         <td width="10">&nbsp;</td>
     </tr>
@@ -64,7 +67,7 @@
         </tr>
         <tr>
             <td>
-                <button type="submit" class="btn btn-success" onclick="@(async () => await AddCliente())"
+                <button type="submit" class="btn btn-success" @onclick="(async () => await Add())"
                         style="width:220px;">
                     Salvar
                 </button>
@@ -72,7 +75,7 @@
         </tr>
     </table>
 </form>
-<table width="100%" style="background:#0A2464;color:honeydew">
+<table class="tableGrid">
     <tr>
         <td width="20">&nbsp;</td>
         <td>
@@ -83,6 +86,7 @@
         <td colspan="2"></td>
     </tr>
 </table>
+
 @if (_vehicles == null)
 {
     <p><em>Carregando...</em></p>
@@ -109,13 +113,13 @@ else
                     <td>@item.Brand</td>
                     <td>@item.Color</td>
                     <td>
-                        <button class="btn btn-primary" onclick="@(async () => await EditCliente(item.ClienteId))"
+                        <button class="btn btn-primary" @onclick="(async () => await Edit(item.Id))"
                                 style="width:110px;">
                             Editar
                         </button>
                     </td>
                     <td>
-                        <button class="btn btn-danger" onclick="@(async () => await DeleteCliente(item.Id))">
+                        <button class="btn btn-danger" @onclick="(async () => await Delete(item.Id))">
                             Deletar
                         </button>
                     </td>
@@ -124,49 +128,60 @@ else
         </tbody>
     </table>
 }
-@functions {
+@code {
     Vehicle[] _vehicles;
 
     Vehicle vehicle = new Vehicle();
-    string ids = "0";
-    bool exibeLinhaIncluida = false;
 
-    protected override async Task OnInitAsync()
+    string addressApi = "192.168.0.103:8080";
+    string apiSpecialist = "api/vehicle";
+
+    protected override async Task OnInitializedAsync()
     {
-        _vehicles = await Http.GetJsonAsync<Vehicle[]>("/api/Clientes/");
+        _vehicles = await Http.GetFromJsonAsync<Vehicle[]>($"{addressApi}/{apiSpecialist}");
     }
-    //adicionar novo cliene
-    void AddVehicle()
+
+    protected void New()
     {
         vehicle = new Vehicle();
     }
-    /*
-    // Adicionar detalhes
-    protected async Task AddVehicle()
+
+    protected async Task Add()
     {
-        if (cliente.ClienteId == 0)
+        if (String.IsNullOrWhiteSpace(vehicle.Id))
         {
-            await Http.SendJsonAsync(HttpMethod.Post, "/api/Clientes/", cliente);
+            await Http.PostAsJsonAsync<Vehicle>($"{addressApi}/{apiSpecialist}", vehicle);
         }
         else
         {
-            await Http.SendJsonAsync(HttpMethod.Put, "/api/Clientes/" + cliente.ClienteId, cliente);
+            await Http.PutAsJsonAsync<Vehicle>($"{addressApi}/{apiSpecialist}/" + vehicle.Id, vehicle);
         }
-        cliente = new Cliente();
-        _clientes = await Http.GetJsonAsync<Cliente[]>("/api/Clientes/");
+        vehicle = new Vehicle();
+        _vehicles = await Http.GetFromJsonAsync<Vehicle[]>($"{addressApi}/{apiSpecialist}");
     }
-    // Editar
-    protected async Task EditCliente(int clienteID)
+
+    protected async Task Edit(string id)
     {
-        ids = clienteID.ToString();
-        cliente = await Http.GetJsonAsync<Cliente>("/api/Clientes/" + Convert.ToInt32(clienteID));
+        vehicle = await Http.GetFromJsonAsync<Vehicle>($"{addressApi}/{apiSpecialist}/" + id);
     }
-    // deletar
-    protected async Task DeleteCliente(int clienteID)
+
+    protected async Task Delete(string id)
     {
-        ids = clienteID.ToString();
-        await Http.DeleteAsync("/api/Clientes/" + Convert.ToInt32(clienteID));
-        _clientes = await Http.GetJsonAsync<Cliente[]>("/api/Clientes/");
+        await Http.DeleteAsync($"{addressApi}/{apiSpecialist}/" + id);
+        _vehicles = await Http.GetFromJsonAsync<Vehicle[]>($"{addressApi}/{apiSpecialist}");
     }
-    */
 }
+
+<style>
+    .tableCad {
+        width: 100%;
+        background: #05163D;
+        color: honeydew
+    }
+
+    .tableGrid {
+        width: 100%;
+        background: #0A2464;
+        color: honeydew
+    }
+</style>

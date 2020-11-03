@@ -32,9 +32,14 @@ namespace FinelliApplicationMonolito.Services
             _repository.Remove(get.Result);
         }
 
-        public async Task<Brand> GetAsync(string name)
+        public async Task<Brand> GetByIdAsync(string id)
         {
-            return await _repository.FindByIdAsync(name);
+            return await _repository.FindByIdAsync(id);
+        }
+
+        public async Task<Brand> GetByNameAsync(string name)
+        {
+            return await _repository.FindByNameAsync(name);
         }
 
         public async Task<IEnumerable<Brand>> ListAsync()

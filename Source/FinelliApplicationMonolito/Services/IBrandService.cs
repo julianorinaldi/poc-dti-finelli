@@ -8,7 +8,9 @@ namespace FinelliApplicationMonolito.Services
     {
         Task<IEnumerable<Brand>> ListAsync();
 
-        Task<Brand> GetAsync(string name);
+        Task<Brand> GetByIdAsync(string id);
+
+        Task<Brand> GetByNameAsync(string name);
 
         void AddItem(Brand brand);
 

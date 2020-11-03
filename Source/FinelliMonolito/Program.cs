@@ -3,6 +3,8 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
+using System.Net.Http;
 
 namespace FinelliMonolito
 {
@@ -12,9 +14,11 @@ namespace FinelliMonolito
         {
             var host = BuildWebHost(args);
             using (var scope = host.Services.CreateScope())
-            using (var context = scope.ServiceProvider.GetService<MemoryDbContextMonolito>())
             {
-                context.Database.EnsureCreated();
+                using (var context = scope.ServiceProvider.GetService<MemoryDbContextMonolito>())
+                {
+                    context.Database.EnsureCreated();
+                }
             }
             host.Run();
         }

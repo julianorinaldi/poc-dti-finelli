@@ -19,7 +19,13 @@ namespace FinelliApplicationMonolito.Repositories
             _context.SaveChanges();
         }
 
-        public async Task<Brand> FindByIdAsync(string name)
+        public async Task<Brand> FindByIdAsync(string id)
+        {
+            var objResult = await _context.Brands.FirstOrDefaultAsync(x => x.Id == id);
+            return objResult;
+        }
+
+        public async Task<Brand> FindByNameAsync(string name)
         {
             var objResult = await _context.Brands.FirstOrDefaultAsync(x => x.Name == name);
             return objResult;
