@@ -5,13 +5,13 @@ VisualStudioVersion = 16.0.30413.136
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinelliMonolito", "FinelliMonolito\FinelliMonolito.csproj", "{66194EA7-D230-4B03-A5C6-ADCD2B0D35F9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinelliDomainVehicle", "FinelliDomain\FinelliDomainVehicle.csproj", "{9A040122-82FC-4EC3-84B3-8084F2353948}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinelliDomainVehicle", "FinelliDomainVehicle\FinelliDomainVehicle.csproj", "{9A040122-82FC-4EC3-84B3-8084F2353948}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinelliDataCore", "FinelliApplication\FinelliDataCore.csproj", "{536E8E9C-4BC3-432B-B19C-17C28CF8646A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinelliDataCore", "FinelliDataCore\FinelliDataCore.csproj", "{536E8E9C-4BC3-432B-B19C-17C28CF8646A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinelliServiceCRUDVehicle", "FinelliServiceCadastro\FinelliServiceCRUDVehicle.csproj", "{0A3078DA-740A-4676-923E-D5347CD63B7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinelliServiceCRUDVehicle", "FinelliServiceCRUDVehicle\FinelliServiceCRUDVehicle.csproj", "{0A3078DA-740A-4676-923E-D5347CD63B7F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinelliTestVehicle", "FinelliWebTest\FinelliTestVehicle.csproj", "{6FF9415F-BFEB-41D9-9192-6DEA29704B09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinelliTestVehicle", "FinelliTestVehicle\FinelliTestVehicle.csproj", "{6FF9415F-BFEB-41D9-9192-6DEA29704B09}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Monolito", "Monolito", "{BCAAEC6B-F45F-46C3-A185-C7D45C64EC58}"
 EndProject
@@ -28,6 +28,13 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinelliDomainMonolito", "FinelliDomainMonolito\FinelliDomainMonolito.csproj", "{3BF9483A-C9B4-4A04-A794-E381C37A8D30}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinelliDomainCore", "FinelliDomainCore\FinelliDomainCore.csproj", "{2F7434A9-9C18-4401-B392-2E5F0568A973}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0-DEVOPS", "0-DEVOPS", "{23D8C40B-F4D3-46DC-A457-B9001A0140F3}"
+	ProjectSection(SolutionItems) = preProject
+		..\.gitignore = ..\.gitignore
+		Dockerfile = Dockerfile
+		..\.github\workflows\main.yml = ..\.github\workflows\main.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

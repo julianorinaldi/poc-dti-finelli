@@ -6,9 +6,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FinelliApplicationMonolito\FinelliApplicationMonolito.csproj" />
-    <ProjectReference Include="..\FinelliApplication\FinelliDataCore.csproj" />
     <ProjectReference Include="..\FinelliDomainMonolito\FinelliDomainMonolito.csproj" />
-    <ProjectReference Include="..\FinelliDomain\FinelliDomainVehicle.csproj" />
+    <ProjectReference Include="..\FinelliDomainVehicle\FinelliDomainVehicle.csproj" />
   </ItemGroup>
 
   <ItemGroup>

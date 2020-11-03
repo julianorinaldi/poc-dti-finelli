@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FinelliApplication\FinelliDataCore.csproj" />
+    <ProjectReference Include="..\FinelliDataCore\FinelliDataCore.csproj" />
+    <ProjectReference Include="..\FinelliDomainVehicle\FinelliDomainVehicle.csproj" />
   </ItemGroup>
 </Project>

@@ -2,24 +2,6 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/Source/.vs/FinelliSolution/v16
-/Source/FinelliApplication/bin/Debug/netcoreapp3.1
-/Source/FinelliApplication/obj
-/Source/FinelliDomain/bin/Debug/netcoreapp3.1
-/Source/FinelliDomain/obj
-/Source/FinelliMonolito/bin/Debug/netcoreapp3.1
-/Source/FinelliMonolito/obj
-/Source/FinelliServiceCadastro/bin/Debug/netcoreapp3.1
-/Source/FinelliServiceCadastro/obj
-/Source/FinelliWebTest/bin/Debug/netcoreapp3.1
-/Source/FinelliWebTest/obj
-/Source/.vs/FinelliSolution/config
-/Source/FinelliApplicationMonolito/bin/Debug/netcoreapp3.1
-/Source/FinelliApplicationMonolito/obj
-/Source/FinelliApplicationVehicle/bin/Debug/netcoreapp3.1
-/Source/FinelliApplicationVehicle/obj
-/Source/FinelliDomainCore/bin/Debug/netcoreapp3.1
-/Source/FinelliDomainCore/obj
-/Source/FinelliDomainMonolito/bin/Debug/netcoreapp3.1
-/Source/FinelliDomainMonolito/obj
-/Source/.vs/FinelliSolution/DesignTimeBuild/.dtbcache.v2
+.vs/
+bin/
+obj/

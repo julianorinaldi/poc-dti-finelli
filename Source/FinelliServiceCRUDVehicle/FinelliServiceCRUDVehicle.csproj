@@ -24,7 +24,5 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FinelliApplicationVehicle\FinelliApplicationVehicle.csproj" />
-    <ProjectReference Include="..\FinelliApplication\FinelliDataCore.csproj" />
-    <ProjectReference Include="..\FinelliDomain\FinelliDomainVehicle.csproj" />
   </ItemGroup>
 </Project>
