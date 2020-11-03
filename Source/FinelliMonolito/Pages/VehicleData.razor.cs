@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Net.Http.Json;
+using FinelliMonolito.Helper;
 
 namespace FinelliMonolito.Pages
 {
@@ -14,7 +15,6 @@ namespace FinelliMonolito.Pages
         [Inject]
         protected HttpClient Http { get; set; }
 
-        private string addressApi = "http://localhost:8889";
         private string apiSpecialist = "api/vehicle";
 
         protected List<Vehicle> vehicleList = new List<Vehicle>();
@@ -29,7 +29,7 @@ namespace FinelliMonolito.Pages
 
         protected async Task GetAll()
         {
-            vehicleList = await Http.GetFromJsonAsync<List<Vehicle>>($"{addressApi}/{apiSpecialist}");
+            vehicleList = await Http.GetFromJsonAsync<List<Vehicle>>($"{ApiHelper.UrlApiVehicle}/{apiSpecialist}");
             searchData = vehicleList;
         }
 
@@ -52,7 +52,7 @@ namespace FinelliMonolito.Pages
 
         protected async Task Delete(string id)
         {
-            await Http.DeleteAsync($"{addressApi}/{apiSpecialist}/" + id);
+            await Http.DeleteAsync($"{ApiHelper.UrlApiVehicle}/{apiSpecialist}/" + id);
             await GetAll();
         }
     }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Net.Http.Json;
 using System.Net;
 using Newtonsoft.Json;
+using FinelliMonolito.Helper;
 
 namespace FinelliMonolito.Pages
 {
@@ -17,7 +18,6 @@ namespace FinelliMonolito.Pages
         [Inject]
         protected HttpClient Http { get; set; }
 
-        private string addressApi = "http://localhost:8889";
         private string apiSpecialist = "api/vehicle";
 
         [Parameter]
@@ -32,7 +32,7 @@ namespace FinelliMonolito.Pages
             if (!String.IsNullOrWhiteSpace(Id))
             {
                 Title = "Editar";
-                var response = await Http.GetAsync($"{addressApi}/{apiSpecialist}/{Id}");
+                var response = await Http.GetAsync($"{ApiHelper.UrlApiVehicle}/{apiSpecialist}/{Id}");
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
                     var jsonString = await response.Content.ReadAsStringAsync();
@@ -47,7 +47,7 @@ namespace FinelliMonolito.Pages
         {
             if (!String.IsNullOrWhiteSpace(vehicle.Id))
             {
-                var response = await Http.GetAsync($"{addressApi}/{apiSpecialist}/{vehicle.Id}");
+                var response = await Http.GetAsync($"{ApiHelper.UrlApiVehicle}/{apiSpecialist}/{vehicle.Id}");
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
                     var jsonString = await response.Content.ReadAsStringAsync();
@@ -60,12 +60,12 @@ namespace FinelliMonolito.Pages
                         vehicleExist.Description = vehicle.Description;
                         vehicleExist.Capacity = vehicle.Capacity;
 
-                        await Http.PutAsJsonAsync<Vehicle>($"{addressApi}/{apiSpecialist}/" + vehicleExist.Id, vehicleExist);
+                        await Http.PutAsJsonAsync<Vehicle>($"{ApiHelper.UrlApiVehicle}/{apiSpecialist}/" + vehicleExist.Id, vehicleExist);
                     }
                 }
                 else if (response.StatusCode == HttpStatusCode.NotFound)
                 {
-                    await Http.PostAsJsonAsync<Vehicle>($"{addressApi}/{apiSpecialist}", vehicle);
+                    await Http.PostAsJsonAsync<Vehicle>($"{ApiHelper.UrlApiVehicle}/{apiSpecialist}", vehicle);
                 }
             }
             Refresh();
