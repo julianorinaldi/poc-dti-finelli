@@ -11,9 +11,13 @@ namespace FinelliApplicationVehicle.Persistence.EntityConfigurations
         {
             builder.ToTable(nameof(Vehicle));
 
-            builder.HasKey(o => o.Chassi);
+            builder.HasKey(o => o.Id);
 
-            builder.HasAlternateKey(o => o.Chassi);
+            builder
+                .Property<String>(nameof(Vehicle.Chassi))
+                .UsePropertyAccessMode(PropertyAccessMode.Property)
+                .HasColumnName(nameof(Vehicle.Chassi))
+                .IsRequired();
 
             builder
                 .Property<String>(nameof(Vehicle.VehicleName))
@@ -28,19 +32,12 @@ namespace FinelliApplicationVehicle.Persistence.EntityConfigurations
                 .IsRequired();
 
             builder
-                .Property<int>(nameof(Vehicle.Year))
+                .Property<string>(nameof(Vehicle.Description))
                 .UsePropertyAccessMode(PropertyAccessMode.Property)
-                .HasColumnName(nameof(Vehicle.Year))
-                .IsRequired();
+                .HasColumnName(nameof(Vehicle.Description));
 
             builder
-                .Property<int>(nameof(Vehicle.Brand))
-                .UsePropertyAccessMode(PropertyAccessMode.Property)
-                .HasColumnName(nameof(Vehicle.Brand))
-                .IsRequired();
-
-            builder
-                .Property<String>(nameof(Vehicle.Color))
+                .Property<string>(nameof(Vehicle.Color))
                 .UsePropertyAccessMode(PropertyAccessMode.Property)
                 .HasColumnName(nameof(Vehicle.Color));
         }

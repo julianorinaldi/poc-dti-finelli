@@ -20,9 +20,9 @@ namespace FinelliApplicationVehicle.Repositories
             _context.SaveChanges();
         }
 
-        public async Task<Vehicle> FindByIdAsync(string chassi)
+        public async Task<Vehicle> FindByIdAsync(string id)
         {
-            var objResult = await _context.Vehicles.FirstOrDefaultAsync(x => x.Chassi == chassi);
+            var objResult = await _context.Vehicles.FirstOrDefaultAsync(x => x.Id == id);
             return objResult;
         }
 

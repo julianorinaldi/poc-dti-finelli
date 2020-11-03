@@ -91,7 +91,7 @@ namespace FinelliTestVehicle
             var model = new VehicleModel()
             {
                 Chassi = "99999",
-                Name = "Novo Veículo"
+                VehicleName = "Novo Veículo"
             };
 
             _vehicleRepositoryMock.Setup<Task<Vehicle>>(x => x.FindByIdAsync(model.Chassi))
@@ -115,7 +115,7 @@ namespace FinelliTestVehicle
             var model = new VehicleModel()
             {
                 Chassi = "12345",
-                Name = "Novo Veículo"
+                VehicleName = "Novo Veículo"
             };
 
             _vehicleRepositoryMock.Setup<Task<Vehicle>>(x => x.FindByIdAsync(model.Chassi))
@@ -139,7 +139,7 @@ namespace FinelliTestVehicle
             var model = new VehicleModel()
             {
                 Chassi = "12345",
-                Name = "Veículo Alterado!"
+                VehicleName = "Veículo Alterado!"
             };
 
             var response = controller.Put(chassi, model);
@@ -158,7 +158,7 @@ namespace FinelliTestVehicle
             var model = new VehicleModel()
             {
                 Chassi = "123456",
-                Name = "Veículo Alterado!"
+                VehicleName = "Veículo Alterado!"
             };
 
             _vehicleRepositoryMock.Setup<Task<Vehicle>>(x => x.FindByIdAsync(model.Chassi))
@@ -180,7 +180,7 @@ namespace FinelliTestVehicle
             var model = new VehicleModel()
             {
                 Chassi = "12345",
-                Name = "Veículo Alterado!"
+                VehicleName = "Veículo Alterado!"
             };
 
             _vehicleRepositoryMock.Setup<Task<Vehicle>>(x => x.FindByIdAsync(model.Chassi))
@@ -195,7 +195,7 @@ namespace FinelliTestVehicle
 
             var modelAltered = _mockVehicle.FirstOrDefault(x => x.Chassi == model.Chassi);
 
-            Assert.Equal(model.Name, modelAltered.VehicleName);
+            Assert.Equal(model.VehicleName, modelAltered.VehicleName);
         }
 
         [Fact]

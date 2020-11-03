@@ -1,0 +1,79 @@
+﻿@page "/fetchvehicle"
+@inherits VehicleDataModel
+
+<h1>Veículos</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <a href='/vehicle/add' class="btn btn-primary" role="button"><i class="fa fa-user-plus"></i> Adicionar</a>
+    </div>
+    <div class="input-group col-md-4 offset-md-4">
+        <input type="text" class="form-control" placeholder="Pesquisar" @bind="SearchString" @bind:event="oninput" @onkeyup="Filter" />
+        <div class="input-group-append">
+            <button class="btn btn-info" @onclick="Filter">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+    </div>
+</div>
+<br />
+@if (vehicleList == null)
+{
+<p><em>Carregando...</em></p> }
+else
+{
+<table class='table'>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Chassi</th>
+            <th>Nome</th>
+            <th>Capacidade</th>
+            <th>Cor</th>
+            <th>Descrição</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in vehicleList)
+        {
+<tr>
+    <td>@item.Id</td>
+    <td>@item.Chassi</td>
+    <td>@item.VehicleName</td>
+    <td>@item.Capacity</td>
+    <td>@item.Color</td>
+    <td>@item.Description</td>
+    <td>
+        <a href='/vehicle/edit/@item.Id' class="btn btn-outline-dark" role="button">Editar</a>
+        <button class="btn btn-danger" data-toggle="modal" data-target="#deleteModal" @onclick="(() => DeleteConfirm(item.Id))">Deletar</button>
+    </td>
+</tr>}
+    </tbody>
+</table>
+
+                <div class="modal fade" id="deleteModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title">Deletar Veículo</h3>
+                            </div>
+                            <div class="modal-body">
+                                <h4>Você tem certeza que deseja deletar esta veículo ?</h4>
+                                <table class="table">
+                                    <tr>
+                                        <td>Chassi</td>
+                                        <td>@vehicle.Chassi</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nome</td>
+                                        <td>@vehicle.VehicleName</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-danger" @onclick="(async () => await Delete(vehicle.Id))" data-dismiss="modal">Sim</button>
+                                <button class="btn btn-warning" data-dismiss="modal">Não</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>}

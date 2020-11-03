@@ -1,0 +1,50 @@
+﻿@page "/vehicle/add"
+@page "/vehicle/edit/{Id}"
+
+@inherits AddEditVehicleModel
+
+<h1>@Title</h1>
+<hr />
+
+<EditForm Model="@vehicle" OnValidSubmit="Save">
+    <DataAnnotationsValidator />
+    <div class="form-group row">
+        <label class="control-label col-md-12">Chassi</label>
+        <div class="col-md-4">
+            <InputText class="form-control" @bind-Value="vehicle.Chassi" />
+        </div>
+        <ValidationMessage For="@(() => vehicle.Chassi)" />
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-md-12">Nome</label>
+        <div class="col-md-4">
+            <InputText class="form-control" @bind-Value="vehicle.VehicleName" />
+        </div>
+        <ValidationMessage For="@(() => vehicle.VehicleName)" />
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-md-12">Capacidade</label>
+        <div class="col-md-4">
+            <InputNumber class="form-control" @bind-Value="vehicle.Capacity" />
+        </div>
+        <ValidationMessage For="@(() => vehicle.Capacity)" />
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-md-12">Cor</label>
+        <div class="col-md-4">
+            <InputText class="form-control" @bind-Value="vehicle.Color" />
+        </div>
+        <ValidationMessage For="@(() => vehicle.Color)" />
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-md-12">Descrição</label>
+        <div class="col-md-4">
+            <InputText class="form-control" @bind-Value="vehicle.Description" />
+        </div>
+        <ValidationMessage For="@(() => vehicle.Description)" />
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <button class="btn btn-light" @onclick="Refresh">Cancelar</button>
+    </div>
+</EditForm>

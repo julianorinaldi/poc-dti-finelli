@@ -33,10 +33,10 @@ namespace FinelliServiceCRUDVehicle.Controllers
             return Ok(models);
         }
 
-        [HttpGet("{sku}")]
-        public async Task<ActionResult> Get(string chassi)
+        [HttpGet("{id}")]
+        public async Task<ActionResult> Get(string id)
         {
-            var entity = await _vehicleService.GetAsync(chassi);
+            var entity = await _vehicleService.GetAsync(id);
             if (entity == null)
                 return NotFound();
 
@@ -60,13 +60,13 @@ namespace FinelliServiceCRUDVehicle.Controllers
             return Ok();
         }
 
-        [HttpPut("{chassi}")]
-        public ActionResult Put(string chassi, [FromBody] VehicleModel value)
+        [HttpPut("{id}")]
+        public ActionResult Put(string id, [FromBody] VehicleModel value)
         {
             try
             {
-                if (String.IsNullOrWhiteSpace(chassi) || chassi != value?.Chassi)
-                    return BadRequest("Chassi incorreto!");
+                if (String.IsNullOrWhiteSpace(id))
+                    return BadRequest("Id é obrigatório!");
 
                 var entity = _mapper.Map<Vehicle>(value);
                 _vehicleService.UpdateItem(entity);
@@ -79,12 +79,12 @@ namespace FinelliServiceCRUDVehicle.Controllers
             return Ok();
         }
 
-        [HttpDelete("{chassi}")]
-        public ActionResult Delete(string chassi)
+        [HttpDelete("{id}")]
+        public ActionResult Delete(string id)
         {
             try
             {
-                _vehicleService.DeleteItem(chassi);
+                _vehicleService.DeleteItem(id);
             }
             catch (Exception ex)
             {

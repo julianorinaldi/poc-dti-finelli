@@ -6,9 +6,8 @@ namespace FinelliDomainVehicle
     {
         public string Chassi { get; set; }
         public string VehicleName { get; set; }
-        public string Brand { get; set; }
+        public string Description { get; set; }
         public int Capacity { get; set; }
-        public int Year { get; set; }
         public string Color { get; set; }
     }
 }
