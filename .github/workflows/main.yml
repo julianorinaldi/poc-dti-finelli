@@ -13,8 +13,10 @@ jobs:
 
     steps:
       - name: Debug environment
+        working-directory: ./Source
         run: |
           pwd && ls -al
+
 
       - name: Build App
         run: dotnet build --configuration Release
