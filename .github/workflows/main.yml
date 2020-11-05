@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ main ]
 
+defaults:
+  run:
+    working-directory: Source
+
 jobs:
   build:
 
@@ -13,7 +17,6 @@ jobs:
 
     steps:
       - name: Debug environment
-        working-directory: ./Source
         run: |
           pwd && ls -al
 
