@@ -12,6 +12,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: View dir
+        run: pwd
+        working-directory: Source
+
       - name: Build App
         run: dotnet build --configuration Release --no-restore
         working-directory: Source
