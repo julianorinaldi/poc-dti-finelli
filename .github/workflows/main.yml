@@ -14,7 +14,7 @@ jobs:
     steps:
 
     - name: Build App
-      working-directory: ./Source/
+      working-directory: ./poc-dti-finelli/
       run: dotnet build --configuration Release
 
     - name: Test App
