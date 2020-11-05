@@ -6,11 +6,6 @@ on:
   pull_request:
     branches: [ main ]
 
-defaults:
-  run:
-    shell: bash
-    working-directory: Source
-
 jobs:
   build:
 
@@ -19,9 +14,10 @@ jobs:
     steps:
 
     - name: Set Path
-      uses: ./Source/
+      working-directory: ./Source/
 
     - name: Build App
+      working-directory: ./Source/
       run: dotnet build --configuration Release
 
     - name: Test App
