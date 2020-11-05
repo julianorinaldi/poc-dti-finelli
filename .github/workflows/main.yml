@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Build App
-        run: dotnet build /Source/FinelliSolution.sln -c Release -o /app
+        run: dotnet build /Source/FinelliSolution.sln
 
       - name: Test App
         run: dotnet test /Source/FinelliTestVehicle/FinelliTestVehicle.csproj
