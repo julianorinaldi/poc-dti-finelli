@@ -18,9 +18,11 @@ jobs:
 
     steps:
 
+    - name: Set Path
+      uses: ./Source/
+
     - name: Build App
       run: dotnet build --configuration Release
-      uses: ./Source/
 
     - name: Test App
       run: dotnet test Source/FinelliTestVehicle/ --no-restore --verbosity normal
