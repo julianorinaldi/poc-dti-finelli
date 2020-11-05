@@ -12,14 +12,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: List
-        run: cd Source
-
       - name: Build App
-        run: dotnet build /Source/FinelliSolution.sln --configuration Release --no-restore
+        run: dotnet build --configuration Release --no-restore
+        working-directory: Source
 
       - name: Test App
-        run: dotnet test /Source/FinelliTestVehicle/FinelliTestVehicle.csproj --no-restore --verbosity normal
+        run: dotnet test FinelliTestVehicle.csproj --no-restore --verbosity normal
+        working-directory: Source/FinelliTestVehicle
 
       - uses: actions/checkout@v2
       - name: Login to DockerHub
