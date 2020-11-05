@@ -12,6 +12,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Listando Dir
+        run: ls
+
+      - name: Listando Dir2
+        run: pwd
+
       - name: Build App
         run: dotnet build Source/FinelliSolution.sln -c Release -o /app
 
