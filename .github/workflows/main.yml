@@ -15,23 +15,23 @@ jobs:
 
     runs-on: ubuntu-latest
 
-      steps:
-      - name: Build App
-        run: dotnet build --configuration Release
+    steps:
+    - name: Build App
+      run: dotnet build --configuration Release
 
-      - name: Test App
-        run: dotnet test Source/FinelliTestVehicle/ --no-restore --verbosity normal
+    - name: Test App
+      run: dotnet test Source/FinelliTestVehicle/ --no-restore --verbosity normal
 
-      - uses: actions/checkout@v2
-      - name: Login to DockerHub
-        uses: docker/login-action@v1 
-        with:
-          login-server: index.docker.io
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - uses: actions/checkout@v2
+    - name: Login to DockerHub
+      uses: docker/login-action@v1 
+      with:
+        login-server: index.docker.io
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag julianorinaldi/dti-finelli-vehicle-service:latest
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag julianorinaldi/dti-finelli-vehicle-service:latest
 
-      - name: Docker Push
-        run: docker push julianorinaldi/dti-finelli-vehicle-service:latest
+    - name: Docker Push
+      run: docker push julianorinaldi/dti-finelli-vehicle-service:latest
