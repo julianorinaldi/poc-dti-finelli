@@ -17,7 +17,7 @@ jobs:
 
     steps:
     - name: Build App
-      run: dotnet build ./Source --configuration Release
+      run: dotnet build --configuration Release
 
     - name: Test App
       run: dotnet test Source/FinelliTestVehicle/ --no-restore --verbosity normal
