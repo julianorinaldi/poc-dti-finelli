@@ -15,6 +15,7 @@ jobs:
 
     runs-on: ubuntu-latest
 
+      steps:
       - name: Build App
         run: dotnet build --configuration Release
 
