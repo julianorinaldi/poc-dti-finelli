@@ -13,9 +13,6 @@ jobs:
 
     steps:
 
-    - name: Set Path
-      working-directory: ./Source/
-
     - name: Build App
       working-directory: ./Source/
       run: dotnet build --configuration Release
