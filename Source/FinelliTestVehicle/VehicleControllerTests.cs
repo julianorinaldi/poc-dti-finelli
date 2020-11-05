@@ -206,7 +206,7 @@ namespace FinelliTestVehicle
         {
             var controller = new VehicleController(new VehicleService(_vehicleRepositoryMock.Object), _mapper);
 
-            string chassi = "9BGRD08X04G117974";
+            string chassi = "9BGRD08X04G117974-Erro";
 
             _vehicleRepositoryMock.Setup<Task<Vehicle>>(x => x.FindByIdAsync(chassi))
                     .Returns(Task.FromResult<Vehicle>(_mockVehicle.FirstOrDefault(x => x.Chassi == chassi)));
@@ -224,7 +224,7 @@ namespace FinelliTestVehicle
         {
             var controller = new VehicleController(new VehicleService(_vehicleRepositoryMock.Object), _mapper);
 
-            string chassi = "0000000004G117974-Erro";
+            string chassi = "0000000004G117974";
 
             _vehicleRepositoryMock.Setup<Task<Vehicle>>(x => x.FindByIdAsync(chassi))
                     .Returns(Task.FromResult<Vehicle>(_mockVehicle.FirstOrDefault(x => x.Chassi == chassi)));
