@@ -13,13 +13,13 @@ jobs:
 
     steps:
       - name: List
-        run: ll
+        run: cd Source
 
       - name: Build App
-        run: dotnet build /Source/FinelliSolution.sln
+        run: dotnet build /Source/FinelliSolution.sln --configuration Release --no-restore
 
       - name: Test App
-        run: dotnet test /Source/FinelliTestVehicle/FinelliTestVehicle.csproj
+        run: dotnet test /Source/FinelliTestVehicle/FinelliTestVehicle.csproj --no-restore --verbosity normal
 
       - uses: actions/checkout@v2
       - name: Login to DockerHub
