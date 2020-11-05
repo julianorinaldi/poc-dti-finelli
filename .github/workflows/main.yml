@@ -12,6 +12,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Debug environment
+        run: |
+          pwd && ls -al
+
       - name: Build App
         run: dotnet build --configuration Release
         working-directory: ./Source
