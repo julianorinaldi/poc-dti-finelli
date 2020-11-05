@@ -8,7 +8,7 @@ on:
 
 defaults:
   run:
-    working-directory: Source
+    working-directory: ./Source
 
 jobs:
   build:
@@ -17,7 +17,7 @@ jobs:
 
     steps:
     - name: Build App
-      run: dotnet build --configuration Release
+      run: dotnet build ./Source --configuration Release
 
     - name: Test App
       run: dotnet test Source/FinelliTestVehicle/ --no-restore --verbosity normal
