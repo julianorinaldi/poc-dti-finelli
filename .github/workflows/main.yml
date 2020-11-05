@@ -14,8 +14,8 @@ jobs:
     steps:
 
     - name: Build App
-      working-directory: ./poc-dti-finelli/
       run: dotnet build --configuration Release
+      working-directory: ./poc-dti-finelli/Source/
 
     - name: Test App
       run: dotnet test Source/FinelliTestVehicle/ --no-restore --verbosity normal
