@@ -12,13 +12,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: View dir
-        run: pwd
-        working-directory: Source
-
       - name: Build App
-        run: dotnet build --configuration Release --no-restore
-        working-directory: Source
+        run: dotnet build Source/ --configuration Release
 
       - name: Test App
         run: dotnet test FinelliTestVehicle.csproj --no-restore --verbosity normal
