@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: List
+        run: ll
+
       - name: Build App
         run: dotnet build /Source/FinelliSolution.sln
 
