@@ -12,6 +12,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Build App
+        run: dotnet publish /Source/FinelliSolution.sln -c Release -o /app
+
+      - name: Test App
+        run: dotnet test /Source/FinelliTestVehicle/FinelliTestVehicle.csproj
+
       - uses: actions/checkout@v2
       - name: Login to DockerHub
         uses: docker/login-action@v1 

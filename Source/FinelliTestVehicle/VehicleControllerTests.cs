@@ -7,6 +7,7 @@ using FinelliServiceCRUDVehicle.Controllers;
 using FinelliServiceCRUDVehicle.Model;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -29,12 +30,12 @@ namespace FinelliTestVehicle
             {
                 new Vehicle()
                 {
-                    Chassi = "12345",
+                    Chassi = "9BGRD08X04G117974",
                     VehicleName = "Veículo 1",
                 },
                 new Vehicle()
                 {
-                    Chassi = "54321",
+                    Chassi = "00000000000000000",
                     VehicleName = "Veículo 2",
                 }
             };
@@ -67,7 +68,7 @@ namespace FinelliTestVehicle
         {
             var controller = new VehicleController(_vechicleServiceMock.Object, _mapper);
 
-            string chassi = "12345";
+            string chassi = "9BGRD08X04G117974";
 
             _vechicleServiceMock.Setup<Task<Vehicle>>(x => x.GetAsync(chassi))
                     .Returns(Task.FromResult<Vehicle>(_mockVehicle.FirstOrDefault(x => x.Chassi == chassi)));
@@ -90,7 +91,7 @@ namespace FinelliTestVehicle
 
             var model = new VehicleModel()
             {
-                Chassi = "99999",
+                Chassi = "99999999999999999",
                 VehicleName = "Novo Veículo"
             };
 
@@ -114,7 +115,7 @@ namespace FinelliTestVehicle
 
             var model = new VehicleModel()
             {
-                Chassi = "12345",
+                Chassi = "9BGRD08X04G117974",
                 VehicleName = "Novo Veículo"
             };
 
@@ -134,11 +135,11 @@ namespace FinelliTestVehicle
         {
             var controller = new VehicleController(new VehicleService(_vehicleRepositoryMock.Object), _mapper);
 
-            string chassi = "123456";
+            string chassi = "0000000004G117974";
 
             var model = new VehicleModel()
             {
-                Chassi = "12345",
+                Chassi = "9BGRD08X04G117974",
                 VehicleName = "Veículo Alterado!"
             };
 
@@ -157,7 +158,7 @@ namespace FinelliTestVehicle
 
             var model = new VehicleModel()
             {
-                Chassi = "123456",
+                Chassi = "0000000004G117974",
                 VehicleName = "Veículo Alterado!"
             };
 
@@ -177,16 +178,18 @@ namespace FinelliTestVehicle
         {
             var controller = new VehicleController(new VehicleService(_vehicleRepositoryMock.Object), _mapper);
 
+            string id = Guid.NewGuid().ToString();
             var model = new VehicleModel()
             {
-                Chassi = "12345",
+                Id = id,
+                Chassi = "9BGRD08X04G117974",
                 VehicleName = "Veículo Alterado!"
             };
 
-            _vehicleRepositoryMock.Setup<Task<Vehicle>>(x => x.FindByIdAsync(model.Chassi))
+            _vehicleRepositoryMock.Setup<Task<Vehicle>>(x => x.FindByIdAsync(model.Id))
                     .Returns(Task.FromResult<Vehicle>(_mockVehicle.FirstOrDefault(x => x.Chassi == model.Chassi)));
 
-            var response = controller.Put(model.Chassi, model);
+            var response = controller.Put(model.Id, model);
             var result = response as OkResult;
 
             Assert.NotNull(result);
@@ -203,7 +206,7 @@ namespace FinelliTestVehicle
         {
             var controller = new VehicleController(new VehicleService(_vehicleRepositoryMock.Object), _mapper);
 
-            string chassi = "12345";
+            string chassi = "9BGRD08X04G117974";
 
             _vehicleRepositoryMock.Setup<Task<Vehicle>>(x => x.FindByIdAsync(chassi))
                     .Returns(Task.FromResult<Vehicle>(_mockVehicle.FirstOrDefault(x => x.Chassi == chassi)));
@@ -221,7 +224,7 @@ namespace FinelliTestVehicle
         {
             var controller = new VehicleController(new VehicleService(_vehicleRepositoryMock.Object), _mapper);
 
-            string chassi = "9999";
+            string chassi = "0000000004G117974";
 
             _vehicleRepositoryMock.Setup<Task<Vehicle>>(x => x.FindByIdAsync(chassi))
                     .Returns(Task.FromResult<Vehicle>(_mockVehicle.FirstOrDefault(x => x.Chassi == chassi)));
