@@ -12,3 +12,4 @@ docker logs -tf finelli-vehicle
 
 ## Acessando Instância do Container
 docker exec -it finelli-vehicle /bin/bash
+.
